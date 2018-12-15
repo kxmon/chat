@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="contanerChat">
+			<div class="topChat">
+				<ul class="chatUl">
+					<li class="oneself">
+						<p class="p1">
+							<img src="img/1.jpg" /><span><i class="onename">10.9.26.216</i><b class="onecontent">你好</b></span>
+						</p>
+						
+					</li>
+					<li class="otherself">
+						<p  class="p2">
+							<img src="img/2.jpg" /><span><i class="othername">10.9.26.215</i><b  class="othercontent">你好啊</b></span>
+						</p>
+						
+					</li>
+				</ul>
+			</div>
+			<div class="botChat">
+				<input type="text"  class="content"/><button class="sendme">发送</button>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    //连接到10.9.26.215:8080服务器
+	var ws=new WebSocket("ws://10.9.26.215:8081");
+	function say(obj){
+			if(obj.ip=="10.9.26.215"){
+				var sli= $(".otherself").eq(0).clone();
+			    sli.find(".othercontent").html(obj.content);
+			    $(".chatUl").append( sli);
+			}else{
+				var sli= $(".oneself").eq(0).clone();
+			    sli.find(".onename").html(obj.ip);
+			    sli.find(".onecontent").html(obj.content);
+			    $(".chatUl").append( sli);
+			}
+		   
+			
+			
+		}
+	//接收来自服务器的消息
+	ws.onmessage=function(message){
+		var obj=JSON.parse(message.data);
+		console.log(obj);
+		switch( obj.type){
+			case "say":
+			say(obj);
+			break;
+			default:
+		}
+		
+	}
+	
+	
+	   
+		
+			
+			
+		
+		 // 客户端向服务器端发送数据
+		$(".sendme").click( function(){
+			
+			// send方法只能传递字符串，不能传递对象，所以需要把对象转成字符串
+			ws.send(JSON.stringify({
+				"type" : "say",
+				"content" : $(".content").val()
+			}));
+			$(".content").val("");
+		})
+		
+		/*content.onkeyup = function(e){
+			if( e.keyCode==13 ){
+				handle();
+			}
+		}*/
+	
+</script>

@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+img {
+  border: none;
+  vertical-align: middle; }
+
+.contanerChat {
+  width: 800px;
+  height: 600px;
+  background: gray;
+  margin: 20px auto; }
+
+.topChat {
+  width: 800px;
+  height: 480px;
+  overflow: auto;
+  padding-top: 50px; }
+
+.botChat {
+  width: 800px;
+  height: 70px;
+  line-height: 70px; }
+  .botChat input {
+    width: 70%;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 50px;
+    font-size: 16px;
+    line-height: 40px; }
+  .botChat button {
+    width: 20%;
+    height: 44px;
+    background: #ccc;
+    border: none;
+    margin-left: 20px; }
+
+.publicImg, .chatUl .oneself .p1 img, .chatUl .otherself .p2 img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; }
+
+.publicLi, .chatUl .oneself, .chatUl .otherself {
+  height: 40px;
+  margin-bottom: 20px;
+  width: 70%; }
+
+.publicSpan, .chatUl .oneself .p1 span, .chatUl .otherself .p2 span {
+  min-width: 150px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3); }
+
+.chatUl {
+  width: 740px;
+  min-height: 480px;
+  overflow: hidden;
+  padding: 0 30px;
+  background: url(../img/4.jpg) no-repeat;
+  background-size: 100%;
+  background-attachment: fixed; }
+  .chatUl .oneself {
+    float: left; }
+    .chatUl .oneself .p1 {
+      width: 100%; }
+      .chatUl .oneself .p1 img {
+        margin-right: 20px;
+        float: left; }
+      .chatUl .oneself .p1 span {
+        display: inline-block; }
+      .chatUl .oneself .p1 .onename {
+        margin-right: 20px;
+        font-style: normal;
+        line-height: 40px; }
+      .chatUl .oneself .p1 .onecontent {
+        font-weight: normal; }
+  .chatUl .otherself {
+    float: right; }
+    .chatUl .otherself .p2 {
+      width: 100%; }
+      .chatUl .otherself .p2 img {
+        float: right;
+        margin-right: 20px; }
+      .chatUl .otherself .p2 span {
+        float: right; }
+        .chatUl .otherself .p2 span .othername {
+          float: right;
+          margin-left: 20px;
+          font-style: normal;
+          line-height: 40px; }
+        .chatUl .otherself .p2 span .othercontent {
+          float: right;
+          font-weight: normal;
+          line-height: 40px; }
+
+/*# sourceMappingURL=style.css.map */
